@@ -1,0 +1,21 @@
+{{#ui-accordion as |execute|}}
+  <div class="title">
+    <i class="dropdown icon"></i>
+    New order
+  </div>
+  <div class="content">
+	<form style="width: 50%; margin:50px; text-align: center;" {{action "createOrder" model on="submit"}}>
+		<label for="name">Name</label>
+		{{input type="text" id="name" value=model.name}}
+		{{#each model.items as |item|}}
+		<br>
+		<img src={{item.product.image_url}} height="60" width="60">
+		<br>
+		<label>{{item.product.title}}</label>
+		{{input type="number" min="0" value=item.quantity}}
+		<br>
+		{{/each}}
+		<button type="submit" type="Order" name="Submit">Add order</button>
+	</form>
+  </div>
+{{/ui-accordion}}

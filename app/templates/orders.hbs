@@ -1,3 +1,4 @@
+<div style="width: 300px; display: block; float: left;">
 <h2>Orders</h2>
 {{#each model as |order|}}
 {{#ui-accordion class="styled"}}
@@ -8,7 +9,7 @@
   	<ul>
   	{{#each order.items as |item|}}
 		<li>
-			<p>{{item.product.title}}</p>
+			<p>{{item.product.title}} - {{item.quantity}}</p>
 		</li>
   	{{/each}}
   	</ul>
@@ -16,4 +17,7 @@
   </div>
 {{/ui-accordion}}
 {{/each}}
+</div>
+<div style="width: 300px; display: block; float: left;">
 {{outlet}}
+</div>
