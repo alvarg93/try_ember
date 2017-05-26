@@ -1,0 +1,55 @@
+<h2>Order {{model.id}} for {{model.name}}</h2>
+{{#ui-shape class="people" as |execute|}}
+  <div class="ui basic segment">
+    <div class="ui button" title="Flip Left" onclick="{{action execute 'flip left'}}">
+      <i class="left long arrow icon"></i>
+    </div>
+    <div class="ui button" title="Flip Up" onclick="{{action execute 'flip up'}}">
+      <i class="up long arrow icon"></i>
+    </div>
+    <div class="ui icon button" title="Flip Down" onclick="{{action execute 'flip down'}}">
+      <i class="down long arrow icon"></i>
+    </div>
+    <div class="ui icon button" title="Flip Right" onclick="{{action execute 'flip right'}}">
+      <i class="right long arrow icon"></i>
+    </div>
+    <div class="ui ignored icon direction buttons">
+      <div class="ui button" title="Flip Over" onclick="{{action execute 'flip over'}}">
+        <i class="retweet icon"></i>
+      </div>
+      <div class="ui button" title="Flip Back" onclick="{{action execute 'flip back'}}">
+        <i class="flipped retweet icon"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="sides">
+  {{#each model.items as |item idx|}}
+    <div class="{{if (index == 0) "active" ""}} side">
+      <div class="ui card">
+        <div class="image">
+          <img src="{{item.product.image_url}}">
+        </div>
+        <div class="content">
+          <div class="header">{{item.product.title}}</div>
+          <div class="meta">
+            <a>Description</a>
+          </div>
+          <div class="description">
+            {{item.product.description}}
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="right floated">
+            <i class="right long arrow icon"></i>
+            {{item.quantity}}
+          </span>
+          <span>
+            Quantity:
+          </span>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+  </div>
+{{/ui-shape}}
