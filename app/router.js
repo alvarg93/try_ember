@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('orders', function() {
       this.route('order', { path: '/:order_id' });
   });
+  this.route('temp-route-for-test');
 });
 
 export default Router;
